@@ -25,10 +25,6 @@ selected_year=st.sidebar.selectbox('Año', list(reversed(range(2010,2021))))
 
 #dataset=st.container()
 st.header("Dataset SENAMHI")
-import streamlit as st
-import pandas as pd
-import numpy as np
-import urllib.request
 
 #@st.experimental_memo
 def download_data():
