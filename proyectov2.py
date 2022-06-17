@@ -75,15 +75,16 @@ st.write('Dimensiones: ' + str(data.shape[0]) + ' filas y ' + str(data.shape[1])
 st.dataframe(data)
 
 #st.text(str(selected_contaminant))
-
+'''
 def filedownload(df):
 	csv = df.to_csv(index=False)
 	b64 = base64.b64encode(csv.encode()).decode()
 	href = f'<a href="data:file/csv;base64,{b64}">Descargar archivo CSV</a> (botón derecho y guardar como ".csv")'
 	return href
 
+st.markdown("<svg><clipPath></clipPath></svg>", unsafe_allow_html=True)
 st.markdown(filedownload(df_selected), unsafe_allow_html=True)
-
+'''
 if st.sidebar.button("CSV completo"):
 	st.subheader('Dataset completo')
 	df=pd.read_csv('datos_horarios_contaminacion_lima.csv')
