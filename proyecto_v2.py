@@ -26,7 +26,7 @@ selected_year=st.sidebar.selectbox('Año', list(reversed(range(2010,2021))))
 #dataset=st.container()
 st.header("Dataset SENAMHI")
 
-#@st.experimental_memo
+@st.experimental_proyecto_v2
 def download_data():
    url="http://server01.labs.org.pe:2005/datos_horarios_contaminacion_lima.csv"
    filename="datos_horarios_contaminacion_lima.csv"
