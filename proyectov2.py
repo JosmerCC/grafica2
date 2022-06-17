@@ -31,7 +31,7 @@ def download_data():
    url="http://server01.labs.org.pe:2005/datos_horarios_contaminacion_lima.csv"
    filename="datos_horarios_contaminacion_lima.csv"
    urllib.request.urlretrieve(url,filename)
-   df=pd.read_csv('datos_horarios.csv')
+   df=pd.read_csv('datos_horarios_contaminacion_lima.csv')
    return df
 st.dataframe(download_data())
 
