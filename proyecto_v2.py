@@ -24,10 +24,25 @@ selected_year=st.sidebar.selectbox('Año', list(reversed(range(2010,2021))))
 
 #dataset=st.container()
 st.header("Dataset SENAMHI")
+import streamlit as st
+import pandas as pd
+import numpy as np
+import urllib.request
+
+@st.experimental_memo
+def download_data():
+   url="http://server01.labs.org.pe:2005/datos_horarios_contaminacion_lima.csv"
+   filename="datos_horarios_contaminacion_lima.csv"
+   urllib.request.urlretrieve(url,filename)
+   df=pd.read_csv('datos_horarios.csv')
+   return df
+st.dataframe(download_data())
+
 
 def load_data(year):
-	df=pd.read_csv('datos_horarios_contaminacion_lima.csv')
+	#df=pd.read_csv('datos_horarios_contaminacion_lima.csv')
 	#df_n=df.replace(r'^\s*$', np.nan, regex=True)
+	df = download_data()
 	df=df.astype({'ANO':'str'})
 	df['PM 10'] = pd.to_numeric(df['PM 10'])
 	df['PM 2.5'] = pd.to_numeric(df['PM 2.5'])
