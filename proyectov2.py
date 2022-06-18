@@ -153,12 +153,12 @@ cont_distrito = distrito.iloc[:,6:].set_index(index)
 fecha_i = index[0]
 fecha_f = index[-1]
 
-st.subheader("Distrito seleccionado:", selec_ditrit )
+st.header("Distrito seleccionado:", selec_ditrit )
 st.markdown(f"Periodo de muestreo: desde {fecha_i} hasta {fecha_f}") 
-st.markdown(f"Data del monitoreo de contaminates del distrito seleccionado {") 
+st.markdown("Data del monitoreo de contaminates del distrito seleccionado") 
 st.dataframe(cont_distrito)
 
-st.subheader("Gráfica: ", selec_ditrit )
+st.subheader("Gráfica interactiva - ", selec_ditrit )
 st.line_chart(cont_distrito)
 
 
