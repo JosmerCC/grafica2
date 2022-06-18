@@ -126,7 +126,7 @@ if anios:
 
 
 		
-download_data()		
+df = download_data()		
 		
 
 
@@ -135,7 +135,7 @@ selec_ditrit = st.sidebar.selectbox('Distrito', distrits_names)
 
 #def serie_temp (selec_ditrit,df_n):
 
-grouped_g2 = df_n.groupby(df.ESTACION)
+grouped_g2 = df.groupby(df.ESTACION)
 #distrito = grouped_g2.get_group(selec_ditrit)
 distrito = grouped_g2.get_group(selec_ditrit)
 fecha = list(distrito.iloc[0,range(2,5)])
