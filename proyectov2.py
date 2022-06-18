@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import urllib.request
+import matplotlib.pyplot as mplt
 #import altair as alt
 #import base64
 
@@ -123,16 +124,31 @@ if anios:
 		st.line_chart(data)
 
 
-'''
-s_ditrit =st.sidebar.selectbox('Distrito', plot_names)
 
-n_samples= 100
-index = pd.date_range('1/4/2022', periods=n_samples, freq='T')
-series = pd.Series(np.random.randn(n_samples), index=index) 
-series
+		
+download_data()		
+		
 
-index = pd.date_range('1/4/2010', '1/1/2023', freq='60T')
-series = pd.Series(np.random.randn(365*24+1), index=index) 
-series
-print(len(index))
-'''
+
+distrits_names = pd.unique(df["ESTACION"])
+selec_ditrit = st.sidebar.selectbox('Distrito', distrits_names)
+
+#def serie_temp (selec_ditrit,df_n):
+
+grouped_g2 = df_n.groupby(df.ESTACION)
+#distrito = grouped_g2.get_group(selec_ditrit)
+distrito = grouped_g2.get_group(selec_ditrit)
+fecha = list(distrito.iloc[0,range(2,5)])
+fecha_ini = fecha[0]+"/"+fecha[1]+"/"+fecha[2]
+rango = int(list(distrito.shape)[0])
+index = pd.date_range(fecha_ini, periods=rango, freq='60T')
+#print(index)
+
+#df_tempo = pd.DataFrame(index ,columns= ['TIEMPO'])
+cont_distrito = distrito.iloc[:,6:].set_index(index)
+#series = pd.Series(, index = index) 
+#series
+
+st.dataframe(cont_distrito)
+
+#cont_distrito.groupby(index).size().plot()
