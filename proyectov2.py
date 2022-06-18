@@ -123,5 +123,16 @@ if anios:
 		st.line_chart(data)
 
 
+'''
+s_ditrit =st.sidebar.selectbox('Distrito', plot_names)
 
-		
+n_samples= 100
+index = pd.date_range('1/4/2022', periods=n_samples, freq='T')
+series = pd.Series(np.random.randn(n_samples), index=index) 
+series
+
+index = pd.date_range('1/4/2010', '1/1/2023', freq='60T')
+series = pd.Series(np.random.randn(365*24+1), index=index) 
+series
+print(len(index))
+'''
