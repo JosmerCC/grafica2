@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import urllib.request
-import matplotlib.pyplot as mplt
+#import matplotlib.pyplot as mplt
 #import altair as alt
 #import base64
 
