@@ -129,7 +129,7 @@ if anios:
 df = download_data()		
 		
 
-
+lsta_conta=['PM 10', 'PM 2.5', 'SO2', 'NO2', 'O3', 'CO']
 distrits_names = pd.unique(df["ESTACION"])
 selec_ditrit = st.sidebar.selectbox('Distrito', distrits_names)
 
@@ -154,3 +154,6 @@ cont_distrito = distrito.iloc[:,6:].set_index(index)
 st.dataframe(cont_distrito)
 
 #cont_distrito.groupby(index).size().plot()
+
+
+st.line_chart(cont_distrito)
