@@ -156,7 +156,7 @@ fecha_f = index[-1]
 st.header('Evaluación de contaminates por Distrito')
 st.subheader("Distrito seleccionado:")
 st.subheader(str(selec_ditrit))
-st.markdown(f"Periodo de muestreo: desde  {fecha_i} hasta {fecha_f}) 
+st.markdown(f"Periodo de muestreo: desde  {fecha_i} hasta {fecha_f}") 
 st.subheader("Data del monitoreo de contaminates del distrito seleccionado") 
 st.dataframe(cont_distrito)
 
