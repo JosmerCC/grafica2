@@ -142,7 +142,7 @@ fecha = list(distrito.iloc[0,range(2,5)])
 fecha_ini = str(fecha[0])+'/'+str(fecha[1])+'/'+str(fecha[2])
 #fecha_ini = datetime.date(fecha)
 rango = int(list(distrito.shape)[0])
-index = pd.date_range(start="2010/04/01", periods=rango, freq='60T')
+index = pd.date_range(start="2010/4/1", periods=rango, freq='60T')
 #print(index)
 
 #df_tempo = pd.DataFrame(index ,columns= ['TIEMPO'])
