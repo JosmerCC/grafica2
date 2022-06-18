@@ -131,7 +131,7 @@ df = download_data()
 
 lsta_conta=['PM 10', 'PM 2.5', 'SO2', 'NO2', 'O3', 'CO']
 distrits_names = pd.unique(df["ESTACION"])
-selec_ditrit = st.sidebar.selectbox('Distrito', distrits_names)
+selec_ditrit = st.sidebar.selectbox('Evaluación de contaminates por Distrito', distrits_names)
 
 #def serie_temp (selec_ditrit,df_n):
 
@@ -140,7 +140,7 @@ grouped_g2 = df.groupby(df.ESTACION)
 distrito = grouped_g2.get_group(selec_ditrit)
 fecha = list(distrito.iloc[0,range(2,5)])
 fecha_ini = str(fecha[0])+'/'+str(int(fecha[1]))+'/'+str(int(fecha[2]))
-st.subheader(fecha_ini)
+
 #fecha_ini = datetime.date(fecha)
 rango = int(list(distrito.shape)[0])
 index = pd.date_range(start=fecha_ini, periods=rango, freq='60T')
@@ -150,10 +150,17 @@ index = pd.date_range(start=fecha_ini, periods=rango, freq='60T')
 cont_distrito = distrito.iloc[:,6:].set_index(index)
 #series = pd.Series(, index = index) 
 #series
+fecha_i = index[0]
+fecha_f = index[-1]
 
+st.subheader("Distrito seleccionado:", selec_ditrit )
+st.markdown(f"Periodo de muestreo: desde {fecha_i} hasta {fecha_f}") 
+st.markdown(f"Data del monitoreo de contaminates del distrito seleccionado {") 
 st.dataframe(cont_distrito)
 
-#cont_distrito.groupby(index).size().plot()
-
-
+st.subheader("Gráfica: ", selec_ditrit )
 st.line_chart(cont_distrito)
+
+
+
+
